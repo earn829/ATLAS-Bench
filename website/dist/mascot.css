@@ -1,0 +1,51 @@
+/* ATLAS scout: an original illustrated mascot with a CSS search-and-verify loop. */
+.wordmark-with-mascot{display:inline-flex;align-items:center;gap:8px}
+.wordmark .brand-name{font-weight:700;margin:0;letter-spacing:-1px}
+.brand-name>span{font-weight:400;margin-inline:2px}
+.mascot{position:relative;display:inline-block;flex-shrink:0;isolation:isolate;line-height:0}
+.mascot-robot{position:absolute;object-fit:contain;z-index:2;pointer-events:none;transform-origin:50% 83%;animation:scout-explore 6.4s ease-in-out infinite;will-change:transform}
+.mascot--nav{width:57px;height:68px}
+.mascot--nav .mascot-robot{width:64px;height:64px;left:-3px;top:1px;animation-name:scout-idle;animation-duration:6.4s}
+.hero-brand{display:flex;align-items:center;gap:14px;margin:-5px 0 0 -11px;max-width:100%}
+.hero-brand .hero-title{min-width:0;font-size:15px;line-height:1.7}
+.hero-brand .desktop-break{display:block}
+.mascot--hero{width:135px;height:151px;border:0;padding:0;background:transparent;cursor:pointer;outline-offset:4px;border-radius:14px}
+.mascot--hero:focus-visible{outline:2px solid #4b8b71}
+.mascot--hero .mascot-robot{width:132px;height:132px;left:3px;top:5px}
+.mascot-ground{position:absolute;bottom:11px;left:33px;width:78px;height:13px;z-index:0;background:radial-gradient(ellipse,#2b443729,transparent 70%);animation:scout-shadow 6.4s ease-in-out infinite}
+.mascot-map{position:absolute;inset:0;width:100%;height:100%;z-index:1;overflow:visible}
+.mascot-ripple{transform-origin:80px 142px;animation:scout-scan 6.4s ease-out infinite}
+.mascot-route{stroke-dashoffset:0;animation:scout-route 6.4s linear infinite}
+.mascot-waypoint{animation:scout-waypoint 6.4s ease-in-out infinite}
+.mascot-waypoint--second{animation-delay:.65s}
+.mascot-pin{transform-origin:49px 41px;animation:scout-locate 6.4s ease-in-out infinite}
+.mascot-verified{position:absolute;width:27px;height:27px;right:-1px;top:15px;z-index:3;animation:scout-verify 6.4s ease-in-out infinite}
+.mascot-spark{position:absolute;right:3px;bottom:38px;width:12px;height:12px;z-index:3;animation:scout-glint 6.4s ease-in-out infinite}
+.mascot-control{position:absolute;bottom:1px;right:1px;z-index:4;display:grid;place-items:center;width:20px;height:20px;border:1px solid #d8dfd2;border-radius:50%;background:#fafbf6;color:#597566;opacity:0;transition:opacity .2s}
+.mascot-control svg{width:11px;height:11px;fill:none;stroke:currentColor;stroke-width:1.4;stroke-linecap:round;stroke-linejoin:round}
+.mascot-control .mascot-play{display:none}
+.mascot--hero:hover .mascot-control,.mascot--hero:focus-visible .mascot-control,.mascot--hero[aria-pressed="true"] .mascot-control{opacity:1}
+.mascot--hero[aria-pressed="true"] .mascot-pause{display:none}
+.mascot--hero[aria-pressed="true"] .mascot-play{display:block}
+.mascot-motion-paused .mascot *{animation-play-state:paused!important}
+.mascot-offscreen *{animation-play-state:paused!important}
+.mascot-page-hidden .mascot *{animation-play-state:paused!important}
+@keyframes scout-explore{
+  0%,100%{transform:translateY(0) rotate(-1deg)}
+  22%{transform:translateY(-5px) rotate(1.5deg)}
+  44%{transform:translateY(-2px) rotate(-2deg)}
+  58%{transform:translateY(-6px) rotate(1deg)}
+  74%{transform:translateY(-3px) rotate(0)}
+}
+@keyframes scout-idle{0%,100%{transform:translateY(1px) rotate(-2deg)}45%,65%{transform:translateY(-2px) rotate(2deg)}}
+@keyframes scout-shadow{0%,100%{transform:scaleX(1);opacity:.75}22%,58%{transform:scaleX(.8);opacity:.4}}
+@keyframes scout-scan{0%,12%{transform:scale(.45);opacity:0}20%{opacity:.6}60%,100%{transform:scale(1.5);opacity:0}}
+@keyframes scout-route{0%{stroke-dashoffset:35;opacity:.15}35%,65%{opacity:.6}100%{stroke-dashoffset:0;opacity:.15}}
+@keyframes scout-waypoint{0%,10%,65%,100%{opacity:.25}28%,45%{opacity:1}}
+@keyframes scout-locate{0%,25%,90%,100%{transform:translateY(3px) scale(.85);opacity:.25}42%,75%{transform:translateY(-2px) scale(1);opacity:1}}
+@keyframes scout-verify{0%,42%,93%,100%{transform:translateY(6px) scale(.65);opacity:0}55%,80%{transform:translateY(0) scale(1);opacity:1}}
+@keyframes scout-glint{0%,55%,82%,100%{transform:scale(.5) rotate(0);opacity:0}66%{transform:scale(1) rotate(90deg);opacity:.9}}
+@media(min-width:1500px){.hero-brand .hero-title{font-size:17px}.mascot--hero{width:150px;height:160px}.mascot--hero .mascot-robot{width:144px;height:144px}}
+@media(max-width:1000px){.hero-brand{gap:10px;margin-left:-5px}.hero-brand .hero-title{font-size:13px}.mascot--hero{width:108px;height:126px}.mascot--hero .mascot-robot{width:108px;height:108px}.mascot-ground{left:24px;width:65px}.mascot-verified{width:23px;height:23px;right:-2px;top:7px}.mascot--nav{width:47px;height:60px}.mascot--nav .mascot-robot{width:56px;height:56px}}
+@media(max-width:640px){.wordmark-with-mascot{gap:6px}.hero-brand{max-width:390px;gap:13px;margin-top:-4px;margin-bottom:0}.hero-brand .hero-title{font-size:14px}.mascot--hero{width:105px;height:124px}.mascot--hero .mascot-robot{width:107px;height:107px}.mascot--nav{width:44px;height:56px}.mascot--nav .mascot-robot{width:52px;height:52px}.mascot-control{opacity:.65}}
+@media(prefers-reduced-motion:reduce){.mascot *{animation:none!important;transition:none!important;will-change:auto}.mascot-ripple{opacity:.2}.mascot-route{opacity:.4}.mascot-verified{opacity:1}.mascot-spark{opacity:0}.mascot-control{display:none}.mascot--hero{cursor:default}}

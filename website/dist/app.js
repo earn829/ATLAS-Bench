@@ -106,6 +106,36 @@ const closeMenu = () => { menu.setAttribute('aria-expanded', 'false'); $('#main-
 menu.addEventListener('click', () => { const open = menu.getAttribute('aria-expanded') !== 'true'; menu.setAttribute('aria-expanded', String(open)); $('#main-nav').classList.toggle('open', open); });
 $$('#main-nav a').forEach(link => link.addEventListener('click', closeMenu));
 document.addEventListener('keydown', event => { if (event.key === 'Escape') closeMenu(); });
+
+const mascotToggle = $('[data-mascot-toggle]');
+const mascotReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+let mascotPaused = false;
+const syncMascotMotion = () => {
+  const paused = mascotPaused || mascotReducedMotion.matches;
+  document.documentElement.classList.toggle('mascot-motion-paused', paused);
+  mascotToggle.setAttribute('aria-pressed', String(paused));
+  mascotToggle.setAttribute('aria-disabled', String(mascotReducedMotion.matches));
+  mascotToggle.setAttribute('aria-label', mascotReducedMotion.matches
+    ? 'ATLAS scout: a robot inspecting a map. Animation disabled by your motion preference.'
+    : `${paused ? 'Play' : 'Pause'} ATLAS scout animation`);
+  mascotToggle.title = mascotReducedMotion.matches ? 'Reduced motion enabled' : `${paused ? 'Play' : 'Pause'} animation`;
+};
+mascotToggle.addEventListener('click', () => {
+  if (mascotReducedMotion.matches) return;
+  mascotPaused = !mascotPaused;
+  syncMascotMotion();
+});
+mascotReducedMotion.addEventListener('change', syncMascotMotion);
+syncMascotMotion();
+const syncMascotVisibility = () => document.documentElement.classList.toggle('mascot-page-hidden', document.hidden);
+document.addEventListener('visibilitychange', syncMascotVisibility);
+syncMascotVisibility();
+if ('IntersectionObserver' in window) {
+  const mascotObserver = new IntersectionObserver(entries => {
+    entries.forEach(entry => entry.target.classList.toggle('mascot-offscreen', !entry.isIntersecting));
+  });
+  $$('.mascot').forEach(mascot => mascotObserver.observe(mascot));
+}
 if ('IntersectionObserver' in window) {
   const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => { if (entry.isIntersecting) $$('.docs-nav a').forEach(link => link.classList.toggle('active', link.hash === `#${entry.target.id}`)); });
