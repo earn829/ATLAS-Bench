@@ -1,0 +1,23 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "atlas-bench"
+version = "0.1.0"
+description = "ATLAS-Bench: ReAct agent, unified retrieval stack and constraint judges for the local-life AI search benchmark"
+requires-python = ">=3.9"
+# numpy is a module-level dependency of local_life_agent. The retrieval stack
+# (faiss-cpu / sentence-transformers / transformers) lives in requirements-vector.txt,
+# and requirements-mlx.txt adds the Apple Silicon index-rebuild path. Neither is on the
+# core package's import path, so they are not repeated here and cannot drift out of sync.
+dependencies = ["numpy>=1.21"]
+
+[project.optional-dependencies]
+# judge/analyze_regional_results.py needs scipy for the regional breakdown and rank
+# correlations; the main-table scoring chain does not.
+analysis = ["scipy>=1.7"]
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["local_life_agent*"]

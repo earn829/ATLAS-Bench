@@ -1,0 +1,46 @@
+{
+  "schema_version": 3,
+  "build_id": "4bfb216784ab4906be8967b810ebbfda",
+  "tokenizer_version": "cjk_bigram_latin_word_v1",
+  "source": [
+    "chaoyang_poi_features_20260820.json",
+    "huangpu_poi_features_20260909.json",
+    "dabancheng_poi_features_20260909.json"
+  ],
+  "sources": [
+    {
+      "path": "chaoyang_poi_features_20260820.json",
+      "size_bytes": 586017120,
+      "mtime_ns": 1789538721447971155,
+      "fingerprint": "586017120:1789538721447971155"
+    },
+    {
+      "path": "huangpu_poi_features_20260909.json",
+      "size_bytes": 133966547,
+      "mtime_ns": 1789537601837153399,
+      "fingerprint": "133966547:1789537601837153399"
+    },
+    {
+      "path": "dabancheng_poi_features_20260909.json",
+      "size_bytes": 2624402,
+      "mtime_ns": 1789537616946404194,
+      "fingerprint": "2624402:1789537616946404194"
+    }
+  ],
+  "source_size_bytes": 722608069,
+  "source_mtime_ns": 1789538721447971155,
+  "source_fingerprint": "chaoyang_poi_features_20260820.json:586017120:1789538721447971155|huangpu_poi_features_20260909.json:133966547:1789537601837153399|dabancheng_poi_features_20260909.json:2624402:1789537616946404194",
+  "built_at": "2026-09-16T17:54:29+0800",
+  "source_records_read": 425244,
+  "poi_count": 425244,
+  "note_count": 260757,
+  "missing_note_id_records": 0,
+  "duplicate_note_records": 0,
+  "empty_note_records": 0,
+  "invalid_coordinate_records": 0,
+  "invalid_poi_records": 0,
+  "poi_database": "data/indexes/poi_rag.sqlite3",
+  "note_database": "data/indexes/note_rag.sqlite3",
+  "limit": null,
+  "elapsed_seconds": 898.081
+}

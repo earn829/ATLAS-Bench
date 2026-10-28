@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="114" height="26" viewBox="0 0 114 26" role="img" aria-labelledby="title">
+  <title id="title">11 evaluated models</title>
+  <defs><clipPath id="clip"><rect width="114" height="26" rx="5"/></clipPath></defs>
+  <g clip-path="url(#clip)">
+    <rect width="114" height="26" fill="#26363C"/>
+    <rect x="75" width="39" height="26" fill="#7A56A5"/>
+  </g>
+  <g fill="#FFFFFF" text-anchor="middle" font-family="DejaVu Sans,Arial,sans-serif" font-size="12">
+    <text x="37.5" y="17.5">Models</text>
+    <text x="94.5" y="17.5" font-weight="600">11</text>
+  </g>
+</svg>

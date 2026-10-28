@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="163" height="26" viewBox="0 0 163 26" role="img" aria-labelledby="title">
+  <title id="title">14 evaluated configurations</title>
+  <defs><clipPath id="clip"><rect width="163" height="26" rx="5"/></clipPath></defs>
+  <g clip-path="url(#clip)">
+    <rect width="163" height="26" fill="#26363C"/>
+    <rect x="120" width="43" height="26" fill="#A75D25"/>
+  </g>
+  <g fill="#FFFFFF" text-anchor="middle" font-family="DejaVu Sans,Arial,sans-serif" font-size="12">
+    <text x="60" y="17.5">Configurations</text>
+    <text x="141.5" y="17.5" font-weight="600">14</text>
+  </g>
+</svg>

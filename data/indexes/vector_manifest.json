@@ -1,0 +1,28 @@
+{
+  "vector_schema_version": 2,
+  "vector_build_id": "9c9fec1a36e8494aa98aaa7928c9c695",
+  "source_build_id": "4bfb216784ab4906be8967b810ebbfda",
+  "model_name": "Qwen/Qwen3-Embedding-0.6B",
+  "embedding_backend": "torch",
+  "mlx_model_dir_name": null,
+  "dimension": 1024,
+  "query_prompt_name": "query",
+  "max_seq_length": 512,
+  "poi_batch_size_used_for_build": 256,
+  "note_batch_size_used_for_build": 256,
+  "workers_used_for_build": 1,
+  "shard_count_used_for_build": 64,
+  "metric": "cosine_via_normalized_inner_product",
+  "index_type": "IndexIDMap2(IndexFlatIP)",
+  "reranker": {
+    "model_name": "Qwen/Qwen3-Reranker-0.6B",
+    "max_length": 512,
+    "score_activation": "identity_logit_difference",
+    "instruction": "official_default_query_prompt"
+  },
+  "poi_count": 425244,
+  "note_count": 260757,
+  "device_used_for_build": "cuda",
+  "built_at": "2026-09-16T18:46:55+0800",
+  "elapsed_seconds": 3088.139
+}

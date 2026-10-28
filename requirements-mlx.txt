@@ -1,0 +1,2 @@
+-r requirements-vector.txt
+mlx-embeddings==0.1.0; sys_platform == "darwin"
