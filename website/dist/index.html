@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="ATLAS-Bench: 1,200 context-aware local search tasks, explicit constraints, and evidence-grounded evaluation in ATLASBox.">
+  <meta name="theme-color" content="#173e35">
+  <title>ATLAS-Bench — Local search, grounded in evidence.</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="results-data.js" defer></script>
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <a href="#" class="wordmark" aria-label="ATLAS-Bench home">ATLAS<span>—</span>Bench<span class="wordmark-dot">.</span></a>
+    <button class="menu-toggle" aria-expanded="false" aria-controls="main-nav">Menu <span>+</span></button>
+    <nav id="main-nav" aria-label="Main navigation">
+      <a href="#benchmark">Benchmark</a><a href="#framework">Framework</a><a href="#results">Results</a><a href="#documentation">Documentation</a>
+      <a class="nav-repo" href="https://github.com/earn829/ATLAS-Bench" target="_blank" rel="noreferrer">Repository <span aria-hidden="true">↗</span></a>
+    </nav>
+  </header>
+  <main id="main">
+    <section class="hero wrap">
+      <div class="hero-copy">
+        <div class="eyebrow"><span class="status-dot"></span> A BENCHMARK FOR AGENTIC LOCAL SEARCH</div>
+        <h1>Local search.<br><em>Beyond relevance.</em></h1>
+        <p class="hero-title">ATLAS-Bench: An Agentic Tool-Use<br class="desktop-break"> Benchmark for Local Area Search</p>
+        <p class="hero-description">Finding a place is only the beginning. Can an agent verify that it fits your needs, at the right time and location?</p>
+        <div class="hero-actions"><a class="button button-primary" href="#benchmark">Explore the benchmark <span>↓</span></a><a class="text-link" href="#documentation">Start building <span>↗</span></a></div>
+        <div class="hero-note"><span>CONTEXT</span><i></i><span>CONSTRAINTS</span><i></i><span>EVIDENCE</span></div>
+      </div>
+      <div class="hero-visual" aria-label="Illustration of a local search request and evidence-backed recommendation">
+        <div class="visual-topline"><span class="tiny-label">A SEARCH, IN CONTEXT</span><span class="live-pill"><b></b> ATLASBox</span></div>
+        <div class="request-card"><span class="request-label">THE REQUEST</span><p>“A nearby restaurant, open now.<br>It <strong>must be quiet.</strong> Prefer around ¥60.”</p><div class="request-meta"><span>◷ 18:30</span><span>⌖ User location</span></div></div>
+        <div class="map-canvas">
+          <svg class="local-map" viewBox="0 0 550 295" role="img" aria-label="Schematic neighborhood with a user location and three candidate places; illustrative, not geographic data">
+            <defs><pattern id="blocks" width="90" height="75" patternUnits="userSpaceOnUse" patternTransform="rotate(-16)"><rect x="9" y="9" width="72" height="57" rx="7" fill="#dfe5db"/><path d="M0 0H90M0 0V75" stroke="#fafaf6" stroke-width="13"/></pattern><linearGradient id="river" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#d4e5e6"/><stop offset="1" stop-color="#bfd9dc"/></linearGradient></defs>
+            <rect width="550" height="295" fill="#ebeee7"/><rect width="550" height="295" fill="url(#blocks)"/>
+            <path d="M415-30C350 50 475 110 401 180S430 310 470 330" fill="none" stroke="#f6f8f4" stroke-width="69"/><path d="M415-30C350 50 475 110 401 180S430 310 470 330" fill="none" stroke="url(#river)" stroke-width="52"/>
+            <path d="M20 225C115 190 165 100 280 114S410 141 550 71" fill="none" stroke="#fafaf6" stroke-width="19"/>
+            <rect x="51" y="47" width="95" height="66" rx="20" fill="#c8d8bf" transform="rotate(-16 51 47)"/><text x="66" y="80" class="map-label">GREEN SPACE</text>
+            <circle cx="240" cy="188" r="93" fill="#238875" fill-opacity=".035" stroke="#618e7d" stroke-opacity=".5" stroke-dasharray="4 6"/>
+            <path d="M240 188L259 133L310 116" fill="none" stroke="#238875" stroke-width="2.5" stroke-dasharray="5 5"/>
+            <circle cx="240" cy="188" r="16" fill="#238875" fill-opacity=".14"/><circle cx="240" cy="188" r="6" fill="#238875" stroke="white" stroke-width="3"/>
+            <g class="map-pin"><circle cx="310" cy="116" r="18" fill="#173e35" stroke="#fff" stroke-width="4"/><path d="m303 116 5 5 9-10" fill="none" stroke="#fff" stroke-width="2"/></g>
+            <circle cx="163" cy="145" r="10" fill="#c68c67" stroke="#fff" stroke-width="3"/><circle cx="343" cy="242" r="10" fill="#acb4a5" stroke="#fff" stroke-width="3"/>
+            <text x="258" y="209" class="map-label">YOU ARE HERE</text><text x="335" y="114" class="map-label strong">VERIFIED FIT</text>
+          </svg>
+          <span class="map-caption">SCHEMATIC EXAMPLE / NOT A LIVE SEARCH</span>
+        </div>
+        <div class="evidence-card"><span class="evidence-check">✓</span><div><strong>Quiet. Open. Evidence attached.</strong><p>¥80/person · Price preference gap disclosed</p></div><span class="evidence-tag">Acceptable</span></div>
+        <div class="visual-bottom"><span>RELEVANCE IS A START.</span><strong>Verification makes it useful.</strong></div>
+      </div>
+    </section>
+    <div class="stats-bar wrap" aria-label="Benchmark at a glance"><div><strong>1,200</strong><span>contextual queries</span></div><div><strong>3</strong><span>distinct regions</span></div><div><strong>3,049</strong><span>atomic constraints</span></div><div><strong>14</strong><span>model configurations</span></div></div>
+
+    <section id="benchmark" class="section wrap">
+      <div class="section-head"><span class="section-no">01 / THE BENCHMARK</span><div><h2>One request.<br><em>Many ways to get it wrong.</em></h2><p>Local search combines facts, experiences, mandatory requirements, and preferences. ATLAS makes each one explicit—and verifiable.</p></div></div>
+      <div class="constraint-layout">
+        <div class="constraint-intro"><span class="small-caps">TWO INDEPENDENT DIMENSIONS</span><h3>Not every constraint<br>plays by the same rules.</h3><p>Hard requirements must hold. Soft preferences permit disclosed trade-offs. Either can be objective or subjective.</p><div class="annotation-note"><span>↳</span><p>Select a constraint to explore<br>how it is checked.</p></div></div>
+        <div class="taxonomy"><div class="taxonomy-axis"><span>OBJECTIVE</span><span>SUBJECTIVE</span></div><div class="taxonomy-grid">
+          <button class="constraint active" data-constraint="hard-objective" aria-pressed="true"><span class="constraint-type">HARD · OBJECTIVE</span><strong>“Open now.”</strong><span class="constraint-bottom">Mandatory fact <span>↗</span></span></button>
+          <button class="constraint" data-constraint="hard-subjective" aria-pressed="false"><span class="constraint-type">HARD · SUBJECTIVE</span><strong>“Must be quiet.”</strong><span class="constraint-bottom">Mandatory experience <span>↗</span></span></button>
+          <button class="constraint" data-constraint="soft-objective" aria-pressed="false"><span class="constraint-type">SOFT · OBJECTIVE</span><strong>“Around ¥60.”</strong><span class="constraint-bottom">Factual preference <span>↗</span></span></button>
+          <button class="constraint" data-constraint="soft-subjective" aria-pressed="false"><span class="constraint-type">SOFT · SUBJECTIVE</span><strong>“Prefer romantic.”</strong><span class="constraint-bottom">Experiential preference <span>↗</span></span></button>
+        </div><div class="constraint-detail" aria-live="polite"><span class="small-caps" id="constraint-source">EVIDENCE / STRUCTURED ATTRIBUTES</span><p id="constraint-description">Check the recorded opening hours against the query timestamp. A closed place—or an unsupported opening-hours claim—cannot satisfy this hard requirement.</p></div></div>
+      </div>
+      <div class="principles"><div><span>01</span><h4>Grounded in search events</h4><p>Real logged intents are expanded with POI evidence and persona-guided requirements. Added constraints are synthesized.</p></div><div><span>02</span><h4>Evidence for every requirement</h4><p>Annotations connect constraints to attributes, reviews, relations, and verification criteria.</p></div><div><span>03</span><h4>More than one valid answer</h4><p>The engaged reference POI is not a unique ground truth. Any evidence-supported candidate can qualify.</p></div></div>
+    </section>
+
+    <section id="framework" class="framework-section section"><div class="wrap">
+      <div class="section-head"><span class="section-no">02 / FROM LOGS TO EVALUATION</span><div><h2>Built on evidence.<br><em>Tested in ATLASBox.</em></h2><p>A fixed knowledge base and shared tool interfaces give every evaluated agent the same search environment.</p></div></div>
+      <figure class="paper-figure framework-figure"><button class="figure-zoom" data-image="assets/framework.png" data-caption="ATLAS construction and evaluation pipeline" aria-label="Enlarge the ATLAS framework figure"><img src="assets/framework.png" alt="ATLAS pipeline: privacy-processed logs and POI evidence, iterative query synthesis, and agent evaluation in ATLASBox" loading="lazy"><span class="zoom-label">View full figure ↗</span></button><figcaption><span>FIGURE / ATLAS PIPELINE</span><span>Original figure from the paper</span></figcaption></figure>
+      <div class="pipeline-summary"><div><span class="step-index">A</span><h3>Ground</h3><p>Link search events to structured place attributes and review evidence; process privacy-sensitive fields.</p></div><div><span class="step-index">B</span><h3>Generate & refine</h3><p>Prepare → Generate → Assert → Debate → Fix → Finalize. Failures inform later assertion checks.</p></div><div><span class="step-index">C</span><h3>Search & evaluate</h3><p>Agents receive a query, timestamp, and location. Answers, tool trajectories, and resource use are assessed.</p></div></div>
+      <div class="tool-strip"><span>FOUR TOOLS.<br>ONE SHARED SANDBOX.</span><code>search_pois</code><code>search_nearby</code><code>search_notes</code><code>get_poi_notes</code></div>
+      <div class="corpus-strip"><div><strong>425,244</strong><span>POIs with attributes & geography</span></div><div><strong>260,757</strong><span>user notes in the frozen corpus</span></div><p><strong>Shared retrieval stack</strong>Qwen3 embeddings → exact FAISS search → Qwen3 reranker. Structured records are served from SQLite.</p></div>
+    </div></section>
+
+    <section id="data" class="section wrap">
+      <div class="section-head"><span class="section-no">03 / THE SEARCH LANDSCAPE</span><div><h2>Three regions.<br><em>Different search challenges.</em></h2><p>From dense urban districts to a sparse regional setting: 400 queries per region, with different intent and constraint distributions.</p></div></div>
+      <div class="region-grid"><article><div class="region-top"><span>BEIJING</span><span>01 / CY</span></div><h3>Chaoyang</h3><div class="region-density density-high" aria-hidden="true"></div><div class="region-numbers"><strong>343,916<small>active POIs</small></strong><span>2.17<small>constraints/query</small></span></div><p>The broadest intent coverage and highest mean semantic distance among the three regions.</p></article><article><div class="region-top"><span>SHANGHAI</span><span>02 / HP</span></div><h3>Huangpu</h3><div class="region-density density-medium" aria-hidden="true"></div><div class="region-numbers"><strong>79,058<small>active POIs</small></strong><span>3.09<small>constraints/query</small></span></div><p>The highest mean constraint count and constraint-combination entropy.</p></article><article><div class="region-top"><span>URUMQI</span><span>03 / DC</span></div><h3>Dabancheng</h3><div class="region-density density-low" aria-hidden="true"></div><div class="region-numbers"><strong>2,270<small>active POIs</small></strong><span>2.37<small>constraints/query</small></span></div><p>A smaller candidate space that also tests reliable recognition of unsatisfiable requests.</p></article></div>
+      <div class="data-summary"><p><strong>75%</strong> of queries combine multiple constraints.</p><p><strong>196</strong> queries contain conflicting hard constraints.</p><button class="text-link" data-image="assets/regions.png" data-caption="Regional POI distributions from the paper">Explore the geographic distributions <span>↗</span></button></div>
+    </section>
+
+    <section id="results" class="results-section section"><div class="wrap">
+      <div class="section-head"><span class="section-no">04 / EMPIRICAL RESULTS</span><div><h2>Better recommendations.<br><em>Or more queries answered?</em></h2><p>Across 14 configurations of 11 models, recommendation validity and query-level success produce different rankings.</p></div></div>
+      <div class="finding-grid"><article><span class="small-caps">HIGHEST CONSTRAINT SATISFACTION</span><div class="finding-number">71.5<span>%</span></div><h3>GPT-6-Luna <span>XHigh</span></h3><p>95.58% factual accuracy, with 1.25 recommendations per satisfiable query.</p></article><article><span class="small-caps">HIGHEST QUERY SUCCESS</span><div class="finding-number">85.3<span>%</span></div><h3>GLM-5.3 <span>Max</span></h3><p>3.07 recommendations per satisfiable query, with a 56.9% constraint satisfaction rate.</p></article></div>
+      <div class="results-panel"><div class="results-controls"><div class="segmented" role="group" aria-label="Result metric group"><button data-group="answer" aria-pressed="true">Answer quality</button><button data-group="trajectory" aria-pressed="false">Trajectory</button><button data-group="cost" aria-pressed="false">Execution cost</button></div><button class="download-results text-link" id="download-results">Download CSV <span>↓</span></button></div>
+        <p class="table-help" id="table-help">Select a column to sort. Percentages except Recs/q. All values are reported in the paper.</p>
+        <div class="results-table-scroll" tabindex="0" role="region" aria-label="Scrollable model results"><table id="results-table"><caption class="sr-only">ATLAS-Bench model performance, 14 configurations</caption><thead></thead><tbody></tbody></table></div>
+        <div class="metric-explainer" id="metric-explainer" aria-live="polite"></div>
+      </div>
+      <p class="results-footnote">Read the metrics together. CSR and CR score returned recommendations; Success@k also counts empty answers as failures on satisfiable queries. These measures have different denominators.</p>
+    </div></section>
+
+    <section id="planning" class="section wrap planning-section"><div class="planning-copy"><span class="section-no">05 / A BUILDING BLOCK FOR PLANNING</span><h2>Small searches.<br><em>Longer consequences.</em></h2><p>A plan supplies the location, time, and budget for local search. Retrieved candidates and their evidence can then inform the next planning decision.</p><div class="case-label">CASE STUDY · QWEN3.8-MAX</div><h3>A day out in Chaoyang.</h3><p>The paper compares a whole-itinerary execution with seven stage-specific requests. The stage-wise responses provide more concrete detail, but CSR falls from <strong>77.8% to 57.8%</strong>, and the factuality check fails because of grounding errors.</p><p class="case-scope">A single illustrative case—not an estimate of end-to-end planning success. It shows why richer plans still need reliable local verification.</p></div><figure class="planning-figure"><button class="figure-zoom" data-image="assets/planning-case.png" data-caption="Long-horizon case: whole-itinerary versus stage-specific requests" aria-label="Enlarge the long-horizon case study"><img src="assets/planning-case.png" alt="Long-horizon case comparing stage choices and supporting evidence for a day trip in Chaoyang" loading="lazy"><span class="zoom-label">Read the case ↗</span></button></figure></section>
+
+    <section id="documentation" class="docs-section section"><div class="wrap"><div class="section-head"><span class="section-no">06 / RUN IT YOURSELF</span><div><h2>From the paper<br><em>to your first trajectory.</em></h2><p>Installation, model configuration, execution, and evaluation—all in one place. Run the commands from the repository root.</p></div></div>
+      <div class="docs-layout"><aside class="docs-nav" aria-label="Documentation sections"><span class="small-caps">THE PRACTICAL GUIDE</span><a class="active" href="#setup">01 <span>Environment & data</span></a><a href="#configure">02 <span>Connect a model</span></a><a href="#run">03 <span>Run the benchmark</span></a><a href="#evaluate">04 <span>Evaluate & compare</span></a><a href="#reproduce">05 <span>Reproducibility</span></a><a class="docs-source" href="https://github.com/earn829/ATLAS-Bench" target="_blank" rel="noreferrer">Open repository documentation ↗</a></aside>
+      <div class="docs-content">
+        <article id="setup" class="doc-step"><span class="doc-number">01 / SET UP</span><h3>Prepare the environment & corpus</h3><p>Start with the source repository and its Git LFS data. Use Python ≥3.9. Retrieval runs on CPU, CUDA, or Apple Silicon MPS; a GPU is recommended.</p><div class="doc-callout">Get the code and data from the <a href="https://github.com/earn829/ATLAS-Bench" target="_blank" rel="noreferrer">GitHub repository ↗</a>. The LFS command below applies to a Git checkout; for a ZIP download, verify that the actual index files are included.</div>
+          <div class="code-block"><div class="code-header"><span>SHELL / macOS & Linux</span><button class="copy-button">Copy</button></div><pre><code>python3 -m venv .venv
+source .venv/bin/activate
+python -m pip install -r requirements-vector.txt
+
+# Fetch the frozen indexes in a Git checkout
+git lfs install
+git lfs pull
+
+# Fetch and verify the pinned retrieval models
+python scripts/fetch_models.py
+python scripts/fetch_models.py --check</code></pre></div>
+          <details><summary>Windows PowerShell setup <span>+</span></summary><div class="code-block"><div class="code-header"><span>POWERSHELL</span><button class="copy-button">Copy</button></div><pre><code>py -m venv .venv
+.\.venv\Scripts\Activate.ps1
+python -m pip install -r requirements-vector.txt
+git lfs install
+git lfs pull
+python scripts/fetch_models.py
+python scripts/fetch_models.py --check</code></pre></div><p>The evaluation shell scripts below require Bash (for example, WSL). The core agent and retrieval tools are Python.</p></details>
+          <div class="spec-row"><span><strong>~4.1 GB</strong> retrieval indexes</span><span><strong>~2.3 GB</strong> model weights</span><span><strong>1024-d</strong> embeddings</span></div>
+          <details><summary>Verify your setup & try the search tools <span>+</span></summary><div class="code-block"><div class="code-header"><span>SHELL</span><button class="copy-button">Copy</button></div><pre><code>python -m unittest discover -s tests -v
+python scripts/check_neural_models.py
+python scripts/run_tool.py search_pois '{"query":"咖啡厅","top_k":3}'
+python scripts/run_tool.py search_nearby '{"query":"咖啡厅","loc":{"lng":116.46,"lat":40.0},"distance_m":2000,"top_k":5}'</code></pre></div></details>
+        </article>
+        <article id="configure" class="doc-step"><span class="doc-number">02 / CONNECT</span><h3>Bring your own model</h3><p>Use an API endpoint or a local vLLM server. Replace the placeholders with your endpoint and model ID; credentials stay in your shell environment.</p><div class="segmented light" role="group" aria-label="Model connection method"><button data-provider="api" aria-pressed="true">API endpoint</button><button data-provider="local" aria-pressed="false">Local vLLM</button></div>
+          <div class="code-block provider-panel" id="provider-api"><div class="code-header"><span>SHELL / API CONFIGURATION</span><button class="copy-button">Copy</button></div><pre><code>export LOCAL_LIFE_API_BASE='https://your-host.example/v1'
+export LOCAL_LIFE_API_KEY='&lt;your-api-key&gt;'
+export LOCAL_LIFE_MODEL='&lt;model-id&gt;'
+export LOCAL_LIFE_API_STYLE='chat_completions'</code></pre></div>
+          <div class="code-block provider-panel" id="provider-local" hidden><div class="code-header"><span>SHELL / LOCAL vLLM</span><button class="copy-button">Copy</button></div><pre><code># Start the model server in a separate terminal
+vllm serve /path/to/model --port 8001
+
+# Configure the benchmark client
+export LOCAL_LIFE_API_BASE='http://127.0.0.1:8001/v1'
+export LOCAL_LIFE_API_KEY='local-vllm'
+export LOCAL_LIFE_MODEL='&lt;served-model-name&gt;'
+export LOCAL_LIFE_ENABLE_THINKING='false'
+export LOCAL_LIFE_THINKING_FIELD='chat_template_kwargs'</code></pre></div>
+          <p class="doc-note">On PowerShell, use <code>$env:NAME='value'</code> in place of <code>export NAME='value'</code>. See <a href="https://github.com/earn829/ATLAS-Bench/blob/HEAD/.env.example" target="_blank" rel="noreferrer">.env.example ↗</a> for reasoning controls and other supported API styles.</p>
+        </article>
+        <article id="run" class="doc-step"><span class="doc-number">03 / EXECUTE</span><h3>One query. Then the full benchmark.</h3><p>Start small, inspect the tool trajectory, then run all 1,200 inputs. Re-running the same command resumes by skipping completed task IDs.</p><div class="code-block"><div class="code-header"><span>SHELL / RUN & FINALIZE</span><button class="copy-button">Copy</button></div><pre><code># Your first trajectory
+python scripts/run_agent.py --limit 1 --workers 1 --output outputs/first.jsonl
+
+# Smoke test: inspect 10 trajectories
+python scripts/run_agent.py --limit 10 --workers 1 --fresh --output outputs/smoke.jsonl
+
+# Full benchmark; repeat this command to resume
+python scripts/run_agent.py --workers 4 --output outputs/my_model.jsonl
+
+# Deduplicate records and generate the summary
+python scripts/finalize_run.py --input outputs/my_model.jsonl</code></pre></div><p class="doc-note">Each JSONL record includes the final answer, tool observations, programmatic grounding checks, protocol corrections, latency, and token usage.</p></article>
+        <article id="evaluate" class="doc-step"><span class="doc-number">04 / EVALUATE</span><h3>Assess the answer and the path to it.</h3><p>Evaluation combines a blind constraint audit, deterministic checks, LLM judgments, and run telemetry. The constraint audit requires adjudicated verdicts before aggregation.</p>
+          <details open><summary>Answer quality · CSR, CR & Success@k <span>+</span></summary><p>Build blind inputs, adjudicate each chunk according to <a href="https://github.com/earn829/ATLAS-Bench/blob/HEAD/judge/RUBRIC.md" target="_blank" rel="noreferrer">RUBRIC.md ↗</a>, then score the verdicts.</p><div class="code-block"><div class="code-header"><span>SHELL / CONSTRAINT AUDIT</span><button class="copy-button">Copy</button></div><pre><code>python judge/build_qoder_judge_inputs.py --run outputs/my_model.final.jsonl --label my_model
+
+# Adjudicate inputs/chunk_*.json into verdicts/chunk_*.jsonl
+# Follow the atlas-qoder-audit skill and judge/RUBRIC.md
+
+python .qoder/skills/atlas-qoder-audit/scripts/score_verdicts.py my_model</code></pre></div></details>
+          <details><summary>Factual accuracy · grounding + factuality <span>+</span></summary><p>An answer passes only when its programmatic grounding check and LLM factuality check both pass. Join completed records by task ID.</p><div class="code-block"><div class="code-header"><span>BASH / FACTUALITY</span><button class="copy-button">Copy</button></div><pre><code>export ATLAS_JUDGE_URL='https://your-judge-host.example/v1/chat/completions'
+export ATLAS_JUDGE_API_KEY='&lt;your-judge-api-key&gt;'
+export ATLAS_JUDGE_MODEL='deepseek-v4-pro'
+
+bash scripts/run_all_factual_accuracy.sh \
+  --run outputs/my_model.final.jsonl --label my_model \
+  --output judge/factual_accuracy_deepseek_pro/my_model.jsonl</code></pre></div><p class="doc-note">The repository’s <code>combine_passrate_factual.py</code> uses predefined label-to-run mappings for the paper’s configurations. Add your run mapping before using it to aggregate a new model.</p></details>
+          <details><summary>Trajectory quality · all four dimensions <span>+</span></summary><p>Configure the judge environment as above. Use <code>--dry-run</code> to inspect payloads without API calls; add <code>smoke</code> for a 15-query trial.</p><div class="code-block"><div class="code-header"><span>BASH / TRAJECTORY JUDGES</span><button class="copy-button">Copy</button></div><pre><code>bash scripts/run_all_intent_understanding.sh --run outputs/my_model.final.jsonl --label my_model --output judge/intent_understanding_deepseek_pro/my_model.jsonl
+bash scripts/run_all_tool_selection.sh --run outputs/my_model.final.jsonl --label my_model --output judge/tool_selection_deepseek_pro/my_model.jsonl
+bash scripts/run_all_evidence_sufficiency.sh --run outputs/my_model.final.jsonl --label my_model --output judge/evidence_sufficiency_deepseek_pro/my_model.jsonl
+bash scripts/run_all_tool_flexibility.sh --run outputs/my_model.final.jsonl --label my_model --output judge/tool_flexibility_deepseek_pro/my_model.jsonl
+
+python judge/summarize_intent_understanding.py
+python judge/summarize_tool_selection.py
+python judge/summarize_evidence_sufficiency.py
+python judge/summarize_tool_flexibility.py</code></pre></div></details>
+          <details><summary>Execution cost & run comparison <span>+</span></summary><p>Tokens, tool calls, and rounds come from telemetry. Compare runs on the same task IDs; audited constraint scores are aggregated separately.</p><div class="code-block"><div class="code-header"><span>SHELL / COMPARE</span><button class="copy-button">Copy</button></div><pre><code>python scripts/compare_runs.py \
+  --run model_a=outputs/model_a.final.jsonl \
+  --run model_b=outputs/model_b.final.jsonl \
+  --output outputs/comparison.md</code></pre></div></details>
+        </article>
+        <article id="reproduce" class="doc-step"><span class="doc-number">05 / KEEP IT COMPARABLE</span><h3>Same environment. Auditable differences.</h3><div class="repro-grid"><div><strong>5 rounds</strong><span>≤2 parallel calls per round<br>≤10 calls in total</span></div><div><strong>100 candidates</strong><span>10 results by default<br>20 results maximum</span></div><div><strong>Fixed evidence</strong><span>Pinned retrieval models<br>Frozen index build ID</span></div><div><strong>Visible inputs only</strong><span>Query, timestamp, location<br>No personas or reference targets</span></div></div><p>Keep prompts, retrieval settings, and the corpus identical. Record reasoning effort, output limits, retries, and any provider-specific deviations alongside each run.</p><a class="text-link" href="https://github.com/earn829/ATLAS-Bench/blob/HEAD/.qoder/skills/atlas-benchmark-eval/SKILL.md" target="_blank" rel="noreferrer">Read the evaluation protocol <span>↗</span></a></article>
+      </div></div>
+    </div></section>
+    <section class="closing wrap"><span class="small-caps">ATLAS-BENCH + ATLASBOX</span><h2>Find a place.<br><em>Make the evidence count.</em></h2><a class="button button-primary" href="https://github.com/earn829/ATLAS-Bench" target="_blank" rel="noreferrer">Explore code & data <span>↗</span></a></section>
+  </main>
+  <footer class="site-footer wrap"><a class="wordmark" href="#">ATLAS<span>—</span>Bench.</a><p>An Agentic Tool-Use Benchmark for Local Area Search</p><a href="#">Back to top ↑</a></footer>
+  <dialog id="figure-dialog" aria-label="Expanded paper figure"><div class="dialog-header"><span id="dialog-caption"></span><button id="close-dialog" aria-label="Close figure">Close ×</button></div><div class="dialog-image-wrap"><img id="dialog-image" alt=""></div><a id="dialog-pdf" target="_blank" rel="noreferrer">Open original PDF ↗</a></dialog>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+</body>
+</html>

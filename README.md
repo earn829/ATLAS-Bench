@@ -14,6 +14,7 @@
 </p>
 
 <p>
+  <a href="https://earn829.github.io/ATLAS-Bench/">🌐 Project Website</a> &nbsp;·&nbsp;
   <a href="#benchmark-overview">🧭 Benchmark Overview</a> &nbsp;·&nbsp;
   <a href="#quickstart">🚀 Quickstart</a> &nbsp;·&nbsp;
   <a href="#evaluation">📊 Evaluation</a>
@@ -133,6 +134,8 @@ validated against tool observations at generation time — hallucinated merchant
 ├── scripts/                   # Runners (agent, finalize, compare), index builders, judge drivers
 ├── judge/                     # Scoring chain: RUBRIC.md + all judge/aggregation scripts
 ├── tests/                     # 104 offline contract tests (no GPU, no network, no API keys)
+├── website/dist/              # Project website published through GitHub Pages
+├── .github/workflows/pages.yml # Deploys the website from the default branch
 └── .qoder/skills/             # Step-by-step playbooks: running models & the blind audit
 ```
 
